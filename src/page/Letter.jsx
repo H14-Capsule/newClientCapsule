@@ -27,6 +27,7 @@ const EditorTextarea = styled.textarea`
   height:470px;
   padding:15px;
   border:none;
+  resize: none;
 
   font-size:28px;
   &:focus {

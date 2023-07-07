@@ -19,12 +19,12 @@ width:${props => {
       case 'move':
         return '60px';
       case 'save':
-        return '20px';
+        return '150px';
       default:
         return '100px';
     }
   }};
-height:${props => (props.type === 'save' ? '20px' : '40px')};
+height:40px;
 text-align:center;
 background-color:transparent;
 border: 1px solid #ccc;

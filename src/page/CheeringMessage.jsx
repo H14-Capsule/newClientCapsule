@@ -5,8 +5,9 @@ import CheeringMessageList from '../components/cheeringMessage/CheeringMessageLi
 const CheeringMessage = () => {
   return (
     <>
-    <CheeringMessageList/>
     <CheeringMessageEditor/>
+    <CheeringMessageList/>
+
     </>
   )
 }
