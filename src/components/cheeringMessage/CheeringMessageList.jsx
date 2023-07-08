@@ -1,32 +1,23 @@
 import React from 'react'
+import { useQuery } from 'react-query'
 import styled from 'styled-components'
+import { cheeringMessageList } from '../../api/cheering'
 
-const dummyData = [
-  {
-    nickName:'유리',
-    content:'후딱 끝내고 싶다.'
-  },
-  {
-    nickName:'유리1',
-    content:'후딱 끝내고 싶다.1'
-  },
-  {
-    nickName:'유리2',
-    content:'후딱 끝내고 싶다.2'
-  },
-]
 const CheeringMessageList = () => {
+
+  const {data,isError} = useQuery('cheeringMessageList',cheeringMessageList)
+
   return (
     <CheeringMessageListSection>
       {
-        dummyData.map((item)=>{
+        data?.map((item)=>{
           return(
           <BackgroundDiv>
             <MessageItemDiv>
-              <label>작성자</label> : <p>{item.nickName}</p>
+              <label>작성자</label> : <span>{item.nickname}</span>
             </MessageItemDiv>
             <MessageItemDiv>
-              <label>내용</label> : <p>{item.content}</p>
+              <label>내용</label> : <span>{item.content}</span>
             </MessageItemDiv>
           </BackgroundDiv>
         )})
@@ -45,6 +36,7 @@ const BackgroundDiv = styled.div`
   margin-top:20px;
   margin-left:20px;
   margin-right:20px;
+  padding:20px;
   height:100px;
   display:flex;
   flex-direction:column;
@@ -54,10 +46,10 @@ const BackgroundDiv = styled.div`
   gap:10px;
   label{
     width:50px;
-    margin-left:40px;
   }
-  p{
-    margin-left:10px;
+  span{
+    padding-left:10px;
+    width:500px;
   }
   &:hover {
     border: 1px solid #ccc;

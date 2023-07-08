@@ -1,17 +1,17 @@
 import styled from 'styled-components'
 
-export const BackgroundStyle = styled.div`
-height:100vh;
-width:640px;
-background-color: white;
-box-shadow: rgba(100,100,111,0.2) 0px 7px 29px 0px;
-`
 export const BackgroundOverlay = styled.div`
+height:100%;
 display:flex;
 justify-content:center;
 background-color:#f6f6f6;
 `
-
+export const BackgroundStyle = styled.div`
+height:100%;
+width:640px;
+background-color: white;
+box-shadow: rgba(100,100,111,0.2) 0px 7px 29px 0px;
+`
 export const ButtonStyle = styled.button`
 cursor: pointer;
 width:${props => {

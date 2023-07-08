@@ -1,5 +1,5 @@
 import Header from '../components/Header';
-import { BackgroundOverlay, BackgroundStyle } from '../style/globalStyle';
+import { BackgroundOverlay, BackgroundStyle, ChildrenDiv } from '../style/globalStyle';
 
 const Layout = ({ children }) => {
   return (

@@ -1,21 +1,64 @@
-import React from 'react'
+import React, { useRef } from 'react'
+import { useMutation, useQueryClient } from 'react-query';
 import styled from 'styled-components'
+import { cheeringMessageEditor } from '../../api/cheering';
 import Button from '../Button';
 import useInput from '../useInput'
 
 const CheeringMessageEditor = () => {
-  const [nickName,onChangeNickName] = useInput();
+  const [nickname,onChangeNickname] = useInput();
   const [content,onChangeContent] = useInput();
+  const queryClient = useQueryClient();
+  const nicknameInput = useRef()
+  const contentTextarea = useRef()
 
+  const cheeringMessageMutate = useMutation(cheeringMessageEditor,{
+    onSuccess:()=>{
+      alert('등록성공')
+      queryClient.invalidateQueries('cheeringMessageList')
+    },
+    onError: (error) =>{
+      console.log(error)
+    }
+  })
+
+  const cheeringMessageSaveBtnHandler = () => {
+    if(nickname.length < 1){
+      nicknameInput.current.focus();
+      return;
+    }
+    if(content.length < 4){
+      contentTextarea.current.focus();
+      return;
+    }
+    if(content.length > 80){
+      alert('글자수가 80자를 초과했습니다.')
+      return;
+    }
+    cheeringMessageMutate.mutate({
+      nickname,
+      content
+    })
+  }
   return (
     <CheeringMessageSection>
       <WriteBoxDiv>
-        <label>작성자</label><NickNameInput value={nickName} onChange={onChangeNickName} placeholder='응원하는 공간입니다. 사칭은 삼가해 주세요.'/>
+        <label>작성자</label>
+        <NickNameInput 
+        ref={nicknameInput}
+        value={nickname} 
+        onChange={onChangeNickname} 
+        placeholder='응원하는 공간입니다. 사칭은 삼가해 주세요.'/>
       </WriteBoxDiv>
       <WriteBoxDiv>
-        <label>내용</label><ContentTextarea value={content} onChange={onChangeContent} placeholder='힘나는 응원글을 3글자 이상 적어주세요.'/>
+        <label>내용</label>
+        <ContentTextarea 
+        ref={contentTextarea}
+        value={content} 
+        onChange={onChangeContent} 
+        placeholder='힘나는 응원글을 3글자 이상 적어주세요.'/>
       </WriteBoxDiv>
-      <Button type='save'>응원글 저장하기</Button>
+      <Button type='save' onClick={cheeringMessageSaveBtnHandler}>응원글 저장하기</Button>
     </CheeringMessageSection>
   )
 }

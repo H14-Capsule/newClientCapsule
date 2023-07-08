@@ -14,6 +14,7 @@ const Completion = () => {
 export default Completion
 
 const CompletionMessage = styled.div`
+  height:90vh;
   margin-top:200px;
   display:flex;
   flex-direction:column;

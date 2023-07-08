@@ -1,11 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useRecoilState } from 'recoil'
 import styled from 'styled-components'
 import letterImg from '../assets/letterimg.png'
 import useInput from '../components/useInput'
+import letterAtom from '../recoil/letterAtom'
 
 const Letter = () => {
-  const [letter,onChangeLetter] = useInput('');
+  const [letterText,setLetterText] = useRecoilState(letterAtom)
+  const [letter,setLetter] = useState(letterText);
 
+  const onChangeLetter = (e) => {
+    setLetter(e.target.value)
+  }
+  useEffect(()=>{
+    setLetterText(letter)
+  },[letter])
   return (
     <LetterDiv>
       <EditorTextarea value={letter} onChange={onChangeLetter}/>
@@ -17,8 +26,8 @@ export default Letter
 
 const LetterDiv = styled.div`
   background-image: url(${letterImg});
-  background-size: 640px 830px ;
-  height:830px;
+  background-size: 640px 90vh ;
+  height:90vh;
 `
 const EditorTextarea = styled.textarea`
   margin-top:60px;

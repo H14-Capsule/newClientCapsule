@@ -27,10 +27,10 @@ const Home = () => {
 export default Home
 
 const HomeMain = styled.main`
+  height:90vh;
   display:flex;
   flex-direction:column;
   align-items:center;
-  justify-content:center;
   gap:70px;
   p {
     font-size:40px;
@@ -39,7 +39,7 @@ const HomeMain = styled.main`
   }
 `
 const Title = styled.h1`
-margin-top:70px;
+margin-top:100px;
 font-size:90px;
 font-weight:800;
 line-height:1.2;

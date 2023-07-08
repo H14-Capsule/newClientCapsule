@@ -1,6 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useLocation,useNavigate } from 'react-router'
+import { useRecoilState, useRecoilValue } from 'recoil'
 import styled from 'styled-components'
+import letterAtom from '../recoil/letterAtom'
 import Button from './Button'
 
 const Header = () => {
@@ -9,9 +11,10 @@ const Header = () => {
   const [rightChild, setRightChild] = useState('')
   const [leftPageMove, setLeftPageMove] = useState('')
   const [rightPageMove, setRightPageMove] = useState('')
+  const letterState = useRecoilValue(letterAtom)
   const location = useLocation()
   const navigate = useNavigate()
-
+  const letterTextarea = useRef();
 useEffect(()=>{
   if(location.pathname === '/'){
     setTitleText('HOME')
@@ -48,6 +51,9 @@ useEffect(()=>{
     navigate(page.leftPageMove)
   }
   const goPrevBtnHandler = (page) => {
+    if(letterState.length === 0){
+      return;
+    }
     navigate(page.rightPageMove)
   }
   return (
@@ -56,16 +62,15 @@ useEffect(()=>{
       <Button onClick={()=>goBackBtnHandler({leftPageMove})}>{leftChild}</Button>:<GapSpan/>}
       <p>{titleText}</p>
       {rightChild ?
-      <Button onClick={()=>goPrevBtnHandler({rightPageMove})}>{rightChild}</Button>:<GapSpan/>}
+      <Button ref={letterTextarea} onClick={()=>goPrevBtnHandler({rightPageMove})}>{rightChild}</Button>:<GapSpan/>}
     </MainHeader>
-
   )
 }
 
 export default Header
 
 const MainHeader = styled.header`
-  height:100px;
+  height:10vh;
   display: flex;
   align-items: center;
   justify-content:space-between;
