@@ -1,11 +1,10 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Certification from '../page/Certification';
-import CheeringMessage from '../page/CheeringMessage';
-import Completion from '../page/Completion';
-import Home from '../page/Home';
-import Letter from '../page/Letter';
-import Layout from './Layout';
-
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Certification from '../page/Certification'
+import CheeringMessage from '../page/CheeringMessage'
+import Completion from '../page/Completion'
+import Home from '../page/Home'
+import Letter from '../page/Letter'
+import Layout from './Layout'
 
 const Router = () => {
   return (
@@ -19,9 +18,8 @@ const Router = () => {
           <Route path="completion" element={<Completion />} />
         </Routes>
       </Layout>
+    </BrowserRouter>
+  )
+}
 
-    </BrowserRouter >
-  );
-};
-
-export default Router;
+export default Router
