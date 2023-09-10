@@ -100,7 +100,7 @@ nav,
 section {
   display: block;
 }
-@import url('https://fonts.googleapis.com/css2?family=Cute+Font&family=Dongle&family=Nanum+Pen+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbit&display=swap');
 /* @font-face {
   font-family: 'Pretendard-Regular';
   src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff')
@@ -109,11 +109,11 @@ section {
   font-style: normal;
 } */
 * {
-  font-family: "Nanum Pen Script";
+  font-family: 'Orbit';
 }
 body {
   line-height: 1;
-  font-family: "Nanum Pen Script";
+  font-family: 'Orbit';
 }
 ol,
 ul {

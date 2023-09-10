@@ -1,11 +1,14 @@
 import { useState } from 'react'
 
-const useInput = () => {
-  const [value, setValue] = useState('')
-  const onChange = (e) => {
-    setValue(e.target.value)
+const useInput = (initialValue) => {
+  const [data, setData] = useState(initialValue)
+  const update = (value) => {
+    setData(value)
   }
-  return [value, onChange]
+  const onChange = (e) => {
+    setData(e.target.value)
+  }
+  return [data, onChange, update]
 }
 
 export default useInput

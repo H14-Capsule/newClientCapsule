@@ -3,7 +3,9 @@ import { ButtonStyle } from '../style/globalStyle'
 
 const Button = (props) => {
   return (
-    <ButtonStyle type={props.type} onClick={props.onClick}>{props.children}</ButtonStyle>
+    <ButtonStyle type={props.type} onClick={props.onClick}>
+      {props.children}
+    </ButtonStyle>
   )
 }
 
