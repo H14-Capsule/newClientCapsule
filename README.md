@@ -64,7 +64,7 @@
   <tr>
     <td>Programming Language</td>
     <td>
-      <img src="https://img.shields.io/badge/TypeScript-3178C6.svg?style=for-the-badge&logo=TypeScript&logoColor=white" alt="JavaScript">
+      <img src="https://img.shields.io/badge/JavaScript-F7E025.svg?style=for-the-badge&logo=JavaScript&logoColor=white" alt="JavaScript">
     </td>
     <td>
       <img src="https://img.shields.io/badge/JavaScript-F7E025.svg?style=for-the-badge&logo=JavaScript&logoColor=white" alt="JavaScript">
