@@ -27,11 +27,11 @@
   <tr>
     <td>관련 링크</td>
     <td>
-      <a target="_blank" rel="noopener noreferrer nofollow" href="https://github.com/H14-Capsule/newClientCapsule">refactoring branch</a>
+      <a target="_blank" rel="noopener noreferrer nofollow" href="https://github.com/H14-Capsule/newClientCapsule">refactoring</a>
       <i style="color: gray;">(← click!)</i>
     </td>
     <td>
-      <a target="_blank" rel="noopener noreferrer nofollow" href="https://github.com/H14-Capsule/capsule-client">before_main branch</a>
+      <a target="_blank" rel="noopener noreferrer nofollow" href="https://github.com/H14-Capsule/capsule-client">before</a>
       <i style="color: gray;">(← click!)</i>
     </td>
   </tr>
